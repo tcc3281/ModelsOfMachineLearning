@@ -54,8 +54,7 @@ class DecisionTree:
         cvs=cross_val_score(model, X, y, cv=5)
         F1=cvs.mean()
         confuse_matrix = pd.crosstab(y, model.predict(X), rownames=['Actual'], colnames=['Predicted'])
-        accuracy=(confuse_matrix[0][0]+confuse_matrix[1][1])/len(data)
-        res=[cvs,accuracy,confuse_matrix,F1]
+        res=[cvs,confuse_matrix,F1]
         return res
     @staticmethod
     def predict_decision_tree(model, data, target):
